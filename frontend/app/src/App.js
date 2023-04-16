@@ -1,25 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
+import React from "react";
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import Home from './pages/Home';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 
-function App() {
+// const baseURL = "http://localhost:3001/test";
+
+const App = () => {
+
+  // const [post, setPost] = React.useState(null);
+
+  // React.useEffect(() => {
+  //   axios.get(baseURL).then((response) => {
+  //     setPost(response.data);
+  //     console.log(response.data)
+  //   });
+  // }, []);
+
+  // if (!post) return null;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/signup' element={<Signup />} />
+        
+      </Routes>
+    </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
